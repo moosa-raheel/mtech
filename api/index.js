@@ -3,6 +3,8 @@ import morgan from "morgan";
 import userRouter from "./routes/user.js";
 import { databaseConnection } from "./db/databaseConnection.js";
 import { config } from "dotenv";
+import cors from "cors";
+import contactRoute from "./routes/contact.js";
 
 const app = express();
 
@@ -19,10 +21,12 @@ databaseConnection(uri);
 // Middlewares
 
 app.use(express.json());
+app.use(cors());
 
 // Routes
 
 app.use("/api/user", userRouter);
+app.use("/api/contact", contactRoute);
 
 const port = process.env.PORT | 3000;
 

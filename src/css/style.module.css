@@ -1,0 +1,24 @@
+.text_center {
+  text-align: center;
+}
+.f_30 {
+  font-size: 3rem;
+}
+.f_40 {
+  font-size: 4rem;
+}
+.mt_10 {
+  margin: 1rem 0;
+}
+.f_16 {
+  font-size: 1.6rem;
+}
+.f_18 {
+  font-size: 1.8rem;
+}
+.text_justify {
+  text-align: justify;
+}
+.l_black {
+  color: #383131;
+}

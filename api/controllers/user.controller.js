@@ -5,7 +5,7 @@ export class UserController {
       const data = await new UserModel(req.body).save();
       res.status(201).json(data);
     } catch (error) {
-      console.log(error.message);
+      res.status(400).json({ error: error.message });
     }
   };
 }

@@ -1,8 +1,9 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import { TypeAnimation } from "react-type-animation";
 
 export default function Header() {
+  const navigate = useNavigate();
   return (
     <>
       <header>
@@ -31,7 +32,14 @@ export default function Header() {
               </p>
               <div className="buttons">
                 <button className="btn btn-product">Products</button>
-                <button className="btn btn-contact">Contact Us</button>
+                <button
+                  className="btn btn-contact"
+                  onClick={() => {
+                    navigate("/contact");
+                  }}
+                >
+                  Contact Us
+                </button>
               </div>
             </div>
             <div className="right"></div>
@@ -41,3 +49,11 @@ export default function Header() {
     </>
   );
 }
+window.addEventListener("scroll", () => {
+  const nav = document.getElementsByTagName("nav")[0];
+  if (document.documentElement.scrollTop > 50) {
+    nav.classList.add("nav-scroll");
+  } else {
+    nav.classList.remove("nav-scroll");
+  }
+});

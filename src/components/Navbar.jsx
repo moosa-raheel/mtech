@@ -1,31 +1,59 @@
-import React from "react";
+import { NavLink } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar({ nav }) {
   return (
     <>
-      <nav>
+      <nav className={nav}>
         <div className="container nav-container">
-          <a href="#" className="logo">
+          <NavLink to="/" className="logo">
             MTECH
-          </a>
+          </NavLink>
           <ul>
             <li>
-              <a href="#">Home</a>
+              <NavLink
+                to="/"
+                style={({ isActive }) => {
+                  return { color: isActive ? "#fff" : "" };
+                }}
+              >
+                Home
+              </NavLink>
             </li>
             <li>
               <a href="#">Products</a>
             </li>
             <li>
-              <a href="#">Login</a>
+              <NavLink
+                to="/login"
+                style={({ isActive }) => {
+                  return { color: isActive ? "#fff" : "" };
+                }}
+              >
+                Login
+              </NavLink>
             </li>
             <li>
-              <a href="#">Signup</a>
+              <NavLink
+                to="/signup"
+                style={({ isActive }) => {
+                  return { color: isActive ? "#fff" : "" };
+                }}
+              >
+                Signup
+              </NavLink>
             </li>
             <li>
               <a href="#">About</a>
             </li>
             <li>
-              <a href="#">Contact</a>
+              <NavLink
+                to="/contact"
+                style={({ isActive }) => {
+                  return { color: isActive ? "#fff" : "" };
+                }}
+              >
+                Contact
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -33,11 +61,6 @@ export default function Navbar() {
     </>
   );
 }
-window.addEventListener("scroll", () => {
-  const nav = document.getElementsByTagName("nav")[0];
-  if (document.documentElement.scrollTop > 50) {
-    nav.classList.add("nav-scroll");
-  } else {
-    nav.classList.remove("nav-scroll");
-  }
-});
+Navbar.defaultProps = {
+  nav: "navbar",
+};
